@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerRegister">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="SEF System" textFill="#bdc3c7">
+         <font>
+            <Font name="Ubuntu" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="97.0" layoutY="52.0" text="Registration" textFill="#bdc3c7">
+         <font>
+            <Font name="Ubuntu" size="32.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="usernameFieldReg" alignment="CENTER" labelFloat="true" layoutX="109.0" layoutY="116.0" prefHeight="25.0" prefWidth="120.0" promptText="username" style="-fx-prompt-text-fill: #bdc3c7; -fx-text-fill: #bdc3c7;" unFocusColor="#bdc3c7" />
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="77.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/user.png" />
+         </image>
+      </ImageView>
+      <JFXPasswordField fx:id="passwordFieldReg" alignment="CENTER" labelFloat="true" layoutX="109.0" layoutY="176.0" prefHeight="25.0" prefWidth="120.0" promptText="password" style="-fx-prompt-text-fill: #bdc3c7; -fx-text-fill: #bdc3c7;" unFocusColor="#bdc3c7" />
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="77.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/padlock.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="registerButton" alignment="BOTTOM_LEFT" graphicTextGap="14.0" layoutX="109.0" layoutY="241.0" onAction="#register" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Sign up" textFill="#bdc3c7">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/register.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+         </graphic></JFXButton>
+      <Label fx:id="textError" alignment="CENTER" layoutX="151.0" layoutY="238.0" textFill="#bdc3c7" />
+      <ImageView fitHeight="182.0" fitWidth="179.0" layoutX="360.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/registration.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
