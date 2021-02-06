@@ -12,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.File;
+import java.security.cert.X509CRL;
+import java.security.cert.X509CRLEntry;
+import java.security.cert.X509Certificate;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -24,15 +27,13 @@ import java.net.URL;
 *
 * */
 
-
-
 public class ControllerLogin extends HashMethode implements ErrorMessages {
 
     //Deklaracija promjenljivih sa login.fxml
     @FXML private JFXTextField usernameField;
     @FXML private JFXPasswordField passwordField;
-    //@FXML private JFXButton loginButton; ne koristi se mislim
     @FXML private JFXButton regLink;
+    @FXML private JFXButton loginButton;
     @FXML private Label textError;
 
     //metoda za prijavljivanje na file system
@@ -68,7 +69,33 @@ public class ControllerLogin extends HashMethode implements ErrorMessages {
 
         //Napraviti redirekciju na board.fxml
         //dodati provjeru digital certification-a
-        System.out.println("Uspjesno ste se prijavili!");
+        
+        //provjera digital certification
+
+        System.out.println("Digital Certification je valid\nUspjesno ste se prijavili!");
+
+        /*
+        * login prosao uspjesno zatvori login.fxml i otvori board.fxml
+        * */
+        //zatvaranje login.fxml scene
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.close();
+
+        //ucitavanje board.fxml scene
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/board.fxml"));
+            ControllerBoard con = new ControllerBoard();
+            con.initData(user);
+            Parent board = loader.load(); //poslije ove linije kreira se board.fxml
+            Scene scene = new Scene(board);
+            Stage window = new Stage();
+            window.setScene(scene);
+            window.setTitle("SEF System | Board");
+            window.setResizable(false);
+            window.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void toRegistration(){

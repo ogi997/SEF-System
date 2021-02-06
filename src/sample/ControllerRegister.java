@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 
 public class ControllerRegister extends HashMethode implements ErrorMessages {
@@ -43,7 +46,7 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
             //random broj od 0 - 2
             Random rand = new Random();
             int randomNumber = rand.nextInt(3); //trebalo bi da baci neki random broj 0,1,2
-            System.out.println("Random number: "+randomNumber);
+            //System.out.println("Random number: "+randomNumber);
             switch(randomNumber){
                 //za slucajnu 0 hash password sa md5
                 case 0: writeFile.write(MD5(user.getPassword()));
@@ -59,6 +62,18 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
         }catch (IOException e){
             System.out.println("Doslo je do greske.. stavljaj sve u textError label");
         }
+
+        //korisnik je registrovan na sistem i treba mu napraviti direktorijum njegov
+        try{
+            Path path = Paths.get(user.getPath()+user.getUsername()); //ovo prepraviti getPath i ostalo
+            Files.createDirectory(path);
+
+        }catch (IOException e) {
+            e.printStackTrace(); //ako se ne kreira fajl obrisati korisnika iz baze
+        }
+
+        System.out.println("Uspjesno ste registrovani na SEF-System");
+        //ubaciti kod za zatvaranje prozora
     }
 
 
