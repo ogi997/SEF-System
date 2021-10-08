@@ -1,0 +1,5 @@
+V	220427121756Z		01	unknown	/C=BA/ST=RS/O=Elektrotehnicki fakultet/OU=ETF/CN=korisnik1/emailAddress=korisnik1@email.com
+V	220427122236Z		02	unknown	/C=BA/ST=RS/O=Elektrotehnicki fakultet/OU=ETF/CN=korisnik2/emailAddress=korisnik2@email.com
+V	220427122250Z		03	unknown	/C=BA/ST=RS/O=Elektrotehnicki fakultet/OU=ETF/CN=korisnik3/emailAddress=korisnik3@email.com
+R	221003153642Z	211003155252Z,superseded	05	unknown	/C=BA/ST=RS/O=Elektrotehnicki fakultet/OU=ETF/CN=korisnik4/emailAddress=korisnik4@mail.com
+V	211004160451Z		06	unknown	/C=BA/ST=RS/O=Elektrotehnicki fakultet/OU=ETF/CN=korisnik5/emailAddress=korisnik5@mail.com

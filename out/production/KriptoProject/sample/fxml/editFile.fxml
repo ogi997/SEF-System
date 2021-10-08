@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerEditFile">
+   <children>
+      <JFXTextArea fx:id="setTextArea" focusColor="#2c3e50" layoutX="25.0" layoutY="83.0" prefHeight="167.0" prefWidth="550.0" promptText="Edit the text" style="-fx-background-color: #bdc3c7;">
+         <font>
+            <Font name="Ubuntu" size="13.0" />
+         </font></JFXTextArea>
+      <JFXButton fx:id="setEditText" layoutX="25.0" layoutY="260.0" onAction="#edit" style="-fx-background-color: #2c3e50;" text="Edit text" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="29.0" text="Name of file:" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameOfFile" layoutX="128.0" layoutY="25.0" prefHeight="28.0" prefWidth="464.0" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="58.0" text="Edit the text" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

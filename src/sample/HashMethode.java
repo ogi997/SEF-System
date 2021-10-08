@@ -4,7 +4,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashMethode {
-    private static String hash(MessageDigest md, String passwordToHash){
+
+    private static String hash(MessageDigest md, String passwordToHash) {
         int i;
         md.update(passwordToHash.getBytes()); //mozda i izbaciti ovu liniju koda
         byte[] bytes = md.digest(/*passwordToHash.getBytes()*/);
@@ -14,19 +15,20 @@ public class HashMethode {
         }
         return sb.toString();
     }
-    public static String SHA_512(String passwordToHash){
+
+    public static String SHA_512(String passwordToHash) {
         String hashPassword = null;
 
         try{
             MessageDigest md = MessageDigest.getInstance("SHA-512");
             hashPassword = hash(md, passwordToHash);
         }catch (NoSuchAlgorithmException e){
-            e.printStackTrace(); //lijepo da se ispisuju ove greske
+            e.printStackTrace();
         }
         return hashPassword;
     }
 
-    public static String SHA_256(String passwordToHash){
+    public static String SHA_256(String passwordToHash) {
         String hashPassword = null;
 
         try {
@@ -38,7 +40,7 @@ public class HashMethode {
         return hashPassword;
     }
 
-    public static String MD5(String passwordToHash){
+    public static String MD5(String passwordToHash) {
         String hashPassword = null;
 
         try{
@@ -50,7 +52,7 @@ public class HashMethode {
         return hashPassword;
     }
 
-    public static boolean passwordValidation(String passwordToValidate, String hashPassword){
+    public static boolean passwordValidation(String passwordToValidate, String hashPassword) {
         final int numberOfStrings = 3;
         int i;
         boolean isValid = false;
@@ -65,8 +67,6 @@ public class HashMethode {
                 isValid = true;
             }
         }
-
         return isValid;
     }
-
 }
