@@ -262,7 +262,7 @@ public class ControllerBoard implements Initializable {
         }
     }
 
-    public String closeEdit(){
+    pquublic String closeEdit(){
         return AlertBox.showDialogYesNo(Alert.AlertType.CONFIRMATION, "Izlaz", "Da li ste sigurni da zelite izaci?");
     }
     public void deleteFile() {

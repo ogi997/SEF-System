@@ -7,13 +7,16 @@ public class User {
     private String username;
     private String password;
 
-    User(){}
+    User() {}
 
-    public String getPath(){ return "/home/ognjen/IdeaProjects/KriptoProject/root/"; }
+    public String getPath() {
+        return "/home/ognjen/IdeaProjects/KriptoProject/root/";
+    }
 
-    public String getUsername(){
+    public String getUsername() {
         return this.username;
     }
+
     public String getPassword(){
         return this.password;
     }
@@ -21,8 +24,8 @@ public class User {
     public void setUsername(String username){
         this.username = username;
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.password = password;
     }
-
 }

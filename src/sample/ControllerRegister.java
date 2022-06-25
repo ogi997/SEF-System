@@ -3,6 +3,7 @@ package sample;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,14 +19,8 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
     @FXML private JFXTextField usernameFieldReg;
     @FXML private JFXPasswordField passwordFieldReg;
     @FXML private Label textError;
-/*
-*
-* dodati greske pri pogresnom popunjavanju
-*
-* */
 
     public void register(){
-
         User user = new User();
 
         user.setUsername(usernameFieldReg.getText());
@@ -33,6 +28,7 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
 
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty()){
             textError.setText(inputError);
+            return;
         }
 
         try{
@@ -46,7 +42,6 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
             //random broj od 0 - 2
             Random rand = new Random();
             int randomNumber = rand.nextInt(3); //trebalo bi da baci neki random broj 0,1,2
-            //System.out.println("Random number: "+randomNumber);
             switch(randomNumber){
                 //za slucajnu 0 hash password sa md5
                 case 0: writeFile.write(MD5(user.getPassword()));
@@ -60,21 +55,16 @@ public class ControllerRegister extends HashMethode implements ErrorMessages {
             }
             writeFile.close();
         }catch (IOException e){
-            System.out.println("Doslo je do greske.. stavljaj sve u textError label");
+            AlertBox.showDialog(Alert.AlertType.ERROR, "ERROR", ErrorMessages.errorRegistration);
         }
 
-        //korisnik je registrovan na sistem i treba mu napraviti direktorijum njegov
         try{
             Path path = Paths.get(user.getPath()+user.getUsername()); //ovo prepraviti getPath i ostalo
             Files.createDirectory(path);
 
         }catch (IOException e) {
-            e.printStackTrace(); //ako se ne kreira fajl obrisati korisnika iz baze
+            AlertBox.showDialog(Alert.AlertType.ERROR, "ERROR", ErrorMessages.errorHomeDir);
         }
-
-        System.out.println("Uspjesno ste registrovani na SEF-System");
-        //ubaciti kod za zatvaranje prozora
+        AlertBox.showDialog(Alert.AlertType.INFORMATION, "SUCCESS", ErrorMessages.successRegistration);
     }
-
-
-}//kraj ControllerRegister klase
+}
